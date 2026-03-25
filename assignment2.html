@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Introducing Myself</title>
+  <style>
+    :root {
+      --bg1: #f7ede2;
+      --bg2: #dfe9f3;
+      --card: rgba(255, 255, 255, 0.82);
+      --text: #2f2a26;
+      --muted: #6b625b;
+      --accent-dark: #8a4f39;
+      --line: rgba(138, 79, 57, 0.16);
+      --shadow: 0 18px 40px rgba(82, 59, 47, 0.14);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "Malgun Gothic", sans-serif;
+      color: var(--text);
+      line-height: 1.6;
+      background:
+        radial-gradient(circle at top left, rgba(255, 201, 160, 0.7), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(132, 193, 214, 0.42), transparent 25%),
+        linear-gradient(135deg, var(--bg1), var(--bg2));
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 36px 0 48px;
+    }
+
+    .hero,
+    .card {
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, 0.65);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+    }
+
+    .hero {
+      padding: 34px 30px;
+    }
+
+    .hero-top {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .profile-thumb {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 6px solid rgba(255, 255, 255, 0.92);
+      box-shadow: 0 16px 30px rgba(84, 56, 44, 0.16);
+      flex-shrink: 0;
+    }
+
+    .hero-text {
+      flex: 1;
+    }
+
+    h1,
+    h2,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      margin-bottom: 18px;
+      font-size: clamp(2.3rem, 4vw, 4.2rem);
+      line-height: 1.08;
+    }
+
+    h2 {
+      margin-bottom: 14px;
+      font-size: 1.8rem;
+    }
+
+    .quick-info {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 14px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .quick-info li {
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.84);
+      border: 1px solid var(--line);
+    }
+
+    .quick-info strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--accent-dark);
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .quick-info a {
+      color: var(--accent-dark);
+      font-weight: 600;
+      word-break: break-all;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 22px;
+      margin-top: 24px;
+    }
+
+    .card {
+      padding: 24px;
+    }
+
+    .intro {
+      grid-column: span 7;
+    }
+
+    .favorites {
+      grid-column: span 5;
+    }
+
+    .gallery {
+      grid-column: span 12;
+    }
+
+    .links {
+      grid-column: span 5;
+    }
+
+    .map {
+      grid-column: span 7;
+    }
+
+    .accent-title {
+      margin-bottom: 10px;
+      color: var(--accent-dark);
+      font-size: 0.92rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .intro p,
+    .travel-list,
+    .link-list {
+      color: var(--muted);
+    }
+
+    .travel-list,
+    .link-list {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .travel-list li,
+    .link-list li {
+      margin-bottom: 10px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .photo-card {
+      overflow: hidden;
+      border-radius: 20px;
+      background: #fff;
+      border: 1px solid var(--line);
+      min-height: 260px;
+    }
+
+    .photo-card img {
+      width: 100%;
+      height: 100%;
+      min-height: 260px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .link-buttons {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .link-button {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 18px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid var(--line);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .link-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 22px rgba(84, 56, 44, 0.12);
+    }
+
+    iframe {
+      width: 100%;
+      min-height: 320px;
+      border: 0;
+      border-radius: 20px;
+    }
+
+    footer {
+      margin-top: 20px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    @media (max-width: 960px) {
+      .hero-top {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .quick-info {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .intro,
+      .favorites,
+      .gallery,
+      .links,
+      .map {
+        grid-column: auto;
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero-top {
+        align-items: center;
+        text-align: center;
+      }
+
+      .hero-text {
+        width: 100%;
+      }
+
+      .quick-info,
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <section class="hero">
+      <div class="hero-top">
+        <img class="profile-thumb" src="74ED0C38-38A7-43F0-A2EA-E81410001D8B.jpg" alt="이재욱 프로필 사진">
+        <div class="hero-text">
+          <h1>Introducing Myself</h1>
+          <ul class="quick-info">
+            <li>
+              <strong>Name</strong>
+              이재욱
+            </li>
+            <li>
+              <strong>MBTI</strong>
+              ISFP
+            </li>
+            <li>
+              <strong>Major</strong>
+              인공지능학과
+            </li>
+            <li>
+              <strong>Hobby</strong>
+              여행, 런닝
+            </li>
+            <li>
+              <strong>Contact</strong>
+              <a href="https://www.instagram.com/xx_linus_/" target="_blank" rel="noreferrer">Instagram</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid">
+      <article class="card intro">
+        <p class="accent-title">About Me</p>
+        <h2>새로운 장소에서 영감을 찾는 것을 좋아합니다.</h2>
+        <p>
+          저는 여행을 하면서 만나는 풍경과 분위기 속에서 새로운 아이디어를 얻는 편입니다.
+          조용한 거리, 넓게 펼쳐진 하늘, 낯선 도시의 색감처럼 평소와 다른 장면들을 보는 시간이
+          정말 즐겁습니다.
+        </p>
+        <p>
+          여행뿐 아니라 런닝도 좋아해서, 몸을 움직이며 생각을 정리하고 기분을 환기하는 시간을
+          자주 가집니다. 이번 페이지는 그런 저의 취향을 담아 밝고 부드러운 여행 감성으로
+          구성했습니다.
+        </p>
+      </article>
+
+      <aside class="card favorites">
+        <p class="accent-title">Travel Notes</p>
+        <h2>제가 좋아하는 순간들</h2>
+        <ul class="travel-list">
+          <li>새로운 여행지를 찾아보고 직접 가보는 시간</li>
+          <li>풍경 사진을 찍으며 추억을 기록하는 순간</li>
+          <li>여행지에서 천천히 걷고 분위기를 느끼는 일</li>
+          <li>런닝을 하며 머리를 비우고 에너지를 채우는 시간</li>
+        </ul>
+      </aside>
+
+      <section class="card gallery">
+        <p class="accent-title">Photo Gallery</p>
+        <h2>여행과 풍경을 담은 사진</h2>
+        <div class="gallery-grid">
+          <div class="photo-card">
+            <img src="KakaoTalk_20260325_122252031.jpg" alt="여행 사진 1">
+          </div>
+          <div class="photo-card">
+            <img src="KakaoTalk_20260325_122252031_01.jpg" alt="여행 사진 2">
+          </div>
+          <div class="photo-card">
+            <img src="KakaoTalk_20260325_122252031_02.jpg" alt="여행 사진 3">
+          </div>
+        </div>
+      </section>
+
+      <section class="card links">
+        <p class="accent-title">Links</p>
+        <h2>자주 보는 여행 콘텐츠</h2>
+        <ul class="link-list">
+          <li>다음 여행지를 찾기 위해 여행 사이트를 자주 둘러봅니다.</li>
+          <li>지도 서비스를 보며 가고 싶은 장소를 미리 찾아보는 편입니다.</li>
+          <li>여행 브이로그를 보며 분위기와 코스를 참고합니다.</li>
+        </ul>
+
+        <div class="link-buttons">
+          <a class="link-button" href="https://www.google.com/travel/" target="_blank" rel="noreferrer">
+            <span>Google Travel</span>
+            <span>Open</span>
+          </a>
+          <a class="link-button" href="https://map.kakao.com/" target="_blank" rel="noreferrer">
+            <span>Kakao Map</span>
+            <span>Open</span>
+          </a>
+          <a class="link-button" href="https://www.youtube.com/results?search_query=travel+vlog" target="_blank" rel="noreferrer">
+            <span>Travel Vlog</span>
+            <span>Open</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="card map">
+        <p class="accent-title">Map</p>
+        <h2>최근에 갔던 여행지</h2>
+        <iframe
+          src="https://www.google.com/maps?q=Jeju%20Island&z=10&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="제주도 지도">
+        </iframe>
+      </section>
+    </section>
+
+    <footer>
+      여행과 런닝을 좋아하는 이재욱의 자기소개 페이지
+    </footer>
+  </div>
+</body>
+</html>
