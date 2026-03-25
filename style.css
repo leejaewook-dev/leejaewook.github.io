@@ -1,0 +1,275 @@
+:root {
+  --bg1: #f7ede2;
+  --bg2: #dfe9f3;
+  --card: rgba(255, 255, 255, 0.82);
+  --text: #2f2a26;
+  --muted: #6b625b;
+  --accent-dark: #8a4f39;
+  --line: rgba(138, 79, 57, 0.16);
+  --shadow: 0 18px 40px rgba(82, 59, 47, 0.14);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", "Malgun Gothic", sans-serif;
+  color: var(--text);
+  line-height: 1.6;
+  background:
+    radial-gradient(circle at top left, rgba(255, 201, 160, 0.7), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(132, 193, 214, 0.42), transparent 25%),
+    linear-gradient(135deg, var(--bg1), var(--bg2));
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 36px 0 48px;
+}
+
+.hero,
+.card {
+  background: var(--card);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  border-radius: 28px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(12px);
+}
+
+.hero {
+  padding: 34px 30px;
+}
+
+.hero-top {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.profile-thumb {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 6px solid rgba(255, 255, 255, 0.92);
+  box-shadow: 0 16px 30px rgba(84, 56, 44, 0.16);
+  flex-shrink: 0;
+}
+
+.hero-text {
+  flex: 1;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 18px;
+  font-size: clamp(2.3rem, 4vw, 4.2rem);
+  line-height: 1.08;
+}
+
+h2 {
+  margin-bottom: 14px;
+  font-size: 1.8rem;
+}
+
+.quick-info {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.quick-info li {
+  padding: 16px 18px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.84);
+  border: 1px solid var(--line);
+}
+
+.quick-info strong {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--accent-dark);
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.quick-info a {
+  color: var(--accent-dark);
+  font-weight: 600;
+  word-break: break-all;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 22px;
+  margin-top: 24px;
+}
+
+.card {
+  padding: 24px;
+}
+
+.intro {
+  grid-column: span 7;
+}
+
+.favorites {
+  grid-column: span 5;
+}
+
+.gallery {
+  grid-column: span 12;
+}
+
+.links {
+  grid-column: span 5;
+}
+
+.map {
+  grid-column: span 7;
+}
+
+.accent-title {
+  margin-bottom: 10px;
+  color: var(--accent-dark);
+  font-size: 0.92rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.intro p,
+.travel-list,
+.link-list {
+  color: var(--muted);
+}
+
+.travel-list,
+.link-list {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.travel-list li,
+.link-list li {
+  margin-bottom: 10px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.photo-card {
+  overflow: hidden;
+  border-radius: 20px;
+  background: #fff;
+  border: 1px solid var(--line);
+  min-height: 260px;
+}
+
+.photo-card img {
+  width: 100%;
+  height: 100%;
+  min-height: 260px;
+  object-fit: cover;
+  display: block;
+}
+
+.link-buttons {
+  display: grid;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.link-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid var(--line);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.link-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 22px rgba(84, 56, 44, 0.12);
+}
+
+iframe {
+  width: 100%;
+  min-height: 320px;
+  border: 0;
+  border-radius: 20px;
+}
+
+footer {
+  margin-top: 20px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.94rem;
+}
+
+@media (max-width: 960px) {
+  .hero-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .quick-info {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .intro,
+  .favorites,
+  .gallery,
+  .links,
+  .map {
+    grid-column: auto;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-top {
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-text {
+    width: 100%;
+  }
+
+  .quick-info,
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+}
